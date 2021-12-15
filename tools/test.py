@@ -1,3 +1,7 @@
+import os, sys
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 import argparse
 import os.path as osp
 import shutil
@@ -15,8 +19,10 @@ from mmdet.datasets import build_dataloader, get_dataset
 from mmdet.models import build_detector
 import time
 
+
 def get_time_str():
     return time.strftime('%Y%m%d_%H%M%S', time.localtime())
+
 
 def single_gpu_test(model, data_loader, show=False, log_dir=None):
     model.eval()
